@@ -18,7 +18,6 @@ Nginx + Gunicorn + Flask.
 ```bash
 cd nginx-gunicorn-flask
 docker build -t nginx-gunicorn-flask:latest  .
-docker pull danriti/nginx-gunicorn-flask
 ```
 
 
