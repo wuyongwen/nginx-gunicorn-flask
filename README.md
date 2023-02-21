@@ -6,16 +6,18 @@ Nginx + Gunicorn + Flask.
 
 ### Base Docker Image
 
-* [ubuntu:12.04](https://registry.hub.docker.com/_/ubuntu/)
+* python:3.6
 
 
 ### Installation
 
 1. Install [Docker](https://www.docker.com/).
 
-2. Download [automated build](https://registry.hub.docker.com/u/danriti/nginx-gunicorn-flask/) from public [Docker Hub Registry](https://registry.hub.docker.com/):
+2. build image
 
 ```bash
+cd nginx-gunicorn-flask
+docker build -t nginx-gunicorn-flask:latest  .
 docker pull danriti/nginx-gunicorn-flask
 ```
 
@@ -23,7 +25,7 @@ docker pull danriti/nginx-gunicorn-flask
 ### Usage
 
 ```bash
-docker run -d -p 80:80 danriti/nginx-gunicorn-flask
+docker run -d --name nginx-gunicorn-flask -p 80:80  nginx-gunicorn-flask:latest
 ```
 
 After few seconds, open `http://<host>` to see the Flask app.

@@ -2,21 +2,10 @@
 
 import logging
 from flask import Flask, jsonify
-from multiprocessing import Process,Lock
-import os
-import time
 
 app = Flask(__name__)
-lock=Lock()
 @app.route('/')
 def hello():
-    n = 's'
-    lock.acquire()
-    app.logger.info('%s: %s is running' %(n,os.getpid()))
-    time.sleep(20)
-    app.logger.info('%s:%s is done' %(n,os.getpid()))
-    lock.release()
-
     return jsonify({
         'hello': 'world'
     })
